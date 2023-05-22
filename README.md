@@ -3,9 +3,12 @@
 
 Hello Professor, 
 In this repository is Project #1. 
+
 Per the Project Guidelines, Authentication.html accepts a hard coded set of username and passwords.
 After logging in, you'll be taken to a landing page, which is the Dashboard.html. In the dashboard, you can then set personal information within the AccountSettings.html. 
 After setting your information, you'll receive a pop-up saying your information was successfully saved. You can then view your personal information in the InformationPage.html. The project is 4 pages total but I added a Logout page just for fun. 
+
+###Requirements
 The AccountSettings page satisfies the following requirements:
   Cookie setting /  getting
   The details for the user (name, email, phone, etc) are saved on one page, then displayed on another
