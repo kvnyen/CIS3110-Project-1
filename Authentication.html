@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Authentication </title> 
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> 
+</head>
+<body>
+
+<h2>Welcome! Please Login.</h2>
+
+<form action="Dashboard.html" onsubmit="return authenticate()">
+            <label for="username">Username:</label>
+            <added IDs to the inputs-->
+            <input
+                id="username"
+                type="text"
+                placeholder="Enter Username"
+                name="username"
+                required
+            />
+            <br>
+            <br>
+            <label for="password">Password:</label>
+            <input
+                id="password"
+                type="password"
+                placeholder="Enter Password"
+                name="password"
+                required
+            />
+            <br>
+            <br>
+            <br>
+            <button type="submit">Login</button>
+        </form>
+<br>
+
+<script>
+
+        //Following function gets values of the username and password fields and checks to see if they match a hard coded username and password 
+            function authenticate(){
+                var authorized;
+
+                //get input values
+                var username = document.getElementById("username").value;
+                var password = document.getElementById("password").value;
+                
+                //check to see if the password and username match 
+                if(username == "admin" && password == "password")
+                    { authorized = true;
+                }else{ // username or password do not match
+                    authorized = false;
+                    //alert user
+                    alert("Incorrect Login. Please Try Again");
+                }
+                //return result
+                return authorized;
+            }
+</script>
+</body>
+</html>
+
+
+
+
+

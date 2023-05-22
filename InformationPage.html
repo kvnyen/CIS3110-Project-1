@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Information Page</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.9/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-cookies.js"></script>
+</head>
+<body style="text-align: center" ng-app="myApp">
+    <h2>Information Page:</h2>
+    <h1 style="color: orange">Your Personal Information</h1>
+ 
+    <div ng-controller="AccountSettingsController">
+        <p>Name: {{ user.name }}</p>
+        <p>Email: {{ user.email }}</p>
+        <p>Phone: {{ user.phone }}</p>
+    </div>
+
+    <div ng-controller="InformationController">
+        <div ng-repeat="item in items">
+            <div>{{ item.items }}</div>
+            <div>{{ item.productID }}</div>
+            <div>{{ item.ItemType }}</div>
+            <div>{{ item.price }}</div>
+            <hr>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        // Create an Angular module named 'myApp' and include the 'ngCookies' module as a dependency
+        var myApp = angular.module('myApp', ['ngCookies']);
+
+        /*global angular*/
+        // Controller for handling user account settings
+        myApp.controller('AccountSettingsController', function ($scope, $cookies) {
+            // Retrieve the 'user' object from cookies and assign it to the $scope.user variable
+            $scope.user = $cookies.getObject('user');
+        });
+
+        // Controller for displaying information items
+        myApp.controller('InformationController', function ($scope) {
+            // Hard-coded array of information items
+            $scope.items = [
+                {
+                    items: '24k Gold Toaster',
+                    productID: '192930928SKU',
+                    ItemType: 'Electronic',
+                    price: '$999.99'
+                },
+                {
+                    items: '24k Gold Spatula',
+                    productID: '192930952SKU',
+                    ItemType: 'Tools',
+                    price: '$999.99',
+                },
+            ];
+        });
+    </script>
+    
+    <p><a href="Dashboard.html">Home Page</a></p>
+</body>
+</html>

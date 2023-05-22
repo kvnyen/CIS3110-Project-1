@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Account Settings</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-cookies.js"></script>
+</head>
+<body style="text-align: center">
+
+    <h2>Account Settings:</h2>
+    <h1 style="color: orange">Personal Information</h1>
+     
+    <div ng-app="accountSettingsApp" ng-controller="AccountSettingsController">
+        <label for="name">Name:</label>
+        <input type="text" id="name" ng-model="user.name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" ng-model="user.email" required>
+
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" ng-model="user.phone" required>
+
+        <button ng-click="saveDetails()">Save</button>
+    </div>
+
+    <script type="text/javascript">
+        /*global angular*/
+        // Create an Angular module named 'accountSettingsApp' and include the 'ngCookies' module as a dependency
+        var app = angular.module('accountSettingsApp', ['ngCookies']);
+
+        // Controller for handling account settings
+        app.controller('AccountSettingsController', function ($scope, $cookies) {
+            // Initialize the 'user' object in the $scope
+            $scope.user = {};
+
+            // Function to save the user details into a cookie
+            $scope.saveDetails = function () {
+                $cookies.putObject('user', $scope.user);
+                alert('Details saved successfully!');
+            };
+        });
+    </script>
+    
+    <p><a href="Dashboard.html">Home Page</a></p>
+</body>
+</html>
